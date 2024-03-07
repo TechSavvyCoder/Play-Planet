@@ -6,7 +6,7 @@ Final project for the course CSIS 1280
 * Yaolong Liu
 
 ## TERM PROJECT:
-You are required to develop a website with a minimum of four pages on a topic of your choice. The projectwill be developed gradually during the term with the complete project due by last week of the classes.You will keep on adding the features learnt in the class to your project.
+You are required to develop a website with a minimum of four pages on a topic of your choice. The project will be developed gradually during the term with the complete project due by last week of the classes.You will keep on adding the features learnt in the class to your project.
 
 * You must use these HTML elements: structural elements, headings, subheadings, paragraphs,lists, tables, forms and form controls, audio, video, phrase elements, entity characters, hyperlinksand images.
 * You must use basic CSS properties like background color, color, font-related properties, gradients,background images and pseudo classes.
