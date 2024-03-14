@@ -1,0 +1,5 @@
+# Ignore
+GroupWork/
+
+# Does not ignore
+!README.md
