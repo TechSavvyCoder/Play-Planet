@@ -112,6 +112,7 @@ body {
     padding: 0;
     width: 1512px;
     overflow-x: hidden;
+    background-color: #000;
 }
 
 .site-main {
