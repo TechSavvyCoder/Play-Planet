@@ -12,6 +12,8 @@
 
     <script src="assets/vendors/jquery.min.js"></script>
     <script src="assets/owlcarousel/owl.carousel.js"></script>
+
+    <script src="site.js" defer></script>
 </head>
 <body>
     <div id="space-container"></div>
@@ -27,44 +29,71 @@
             </nav>
         </header>
         <main>
-            <br><br><br>
+            <br><br>
             <div class="site-main">
-            <div class="owl-carousel owl-theme">
+              <div class="home-banner">
+                <div class="three_fourth banner-img">
+                  <div class="img-container">
+                    <img id="bannerImg" src="images/games/banner/egs-horizon-forbidden-west-carousel-desktop-1920x1080-358478b6468a.avif" alt="">
+                  </div>
+                </div>
+                <div class="one_fourth last banner-games">
+                  <button onclick="changeBanner(0)">button 1</button>
+                  <button onclick="changeBanner(1)">button 2</button>
+                  <button onclick="changeBanner(2)">button 3</button>
+                  <button onclick="changeBanner(3)">button 4</button>
+                  <button onclick="changeBanner(4)">button 5</button>
+                  <button onclick="changeBanner(5)">button 6</button>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <h2>Featured Discounts</h2>
+              <div class="featured-games owl-carousel owl-theme">
                 <div class="item">
-                  <h4>1</h4>
+                  <div class="img-container">
+                    <img src="images/games/725818d8-9768-4a6a-a723-3039aaee1e23_1200x1600-3b6116d3fc1b566b71251d04bce27938.avif" alt="">
+                  </div>
                 </div>
                 <div class="item">
-                  <h4>2</h4>
+                  <div class="img-container">
+                    <img src="images/games/barotrauma-mt24m.avif" alt="">
+                  </div>
                 </div>
                 <div class="item">
-                  <h4>3</h4>
+                  <div class="img-container">
+                    <img src="images/games/download-the-lord-of-the-rings--gollum-offer-clg3r.avif" alt="">
+                  </div>
                 </div>
                 <div class="item">
-                  <h4>4</h4>
+                  <div class="img-container">
+                    <img src="images/games/EGS_FINALFANTASYVIIREMAKEINTERGRADE_SquareEnix_S2_1200x1600-e147110cf8dd1bc8c96810a5867b3475.avif" alt="">
+                  </div>
                 </div>
                 <div class="item">
-                  <h4>5</h4>
+                  <div class="img-container">
+                    <img src="images/games/EGS_KINGDOMHEARTSMelodyofMemory_SQUAREENIX_S2-1200x1600-bc6932a1e7cbb7eeca4f66740f711f11.avif" alt="">
+                  </div>
                 </div>
                 <div class="item">
-                  <h4>6</h4>
+                  <div class="img-container">
+                    <img src="images/games/EGS_OUTRIDERS_PeopleCanFly_S2_1200x1600-069feda6719ffcdf11667a8c16f65b17.avif" alt="">
+                  </div>
                 </div>
                 <div class="item">
-                  <h4>7</h4>
+                  <div class="img-container">
+                    <img src="images/games/lisa--the-painful-6pj1m.avif" alt="">
+                  </div>
                 </div>
                 <div class="item">
-                  <h4>8</h4>
+                  <div class="img-container">
+                    <img src="images/games/my-demon-wife-1njy4.avif" alt="">
+                  </div>
                 </div>
                 <div class="item">
-                  <h4>9</h4>
-                </div>
-                <div class="item">
-                  <h4>10</h4>
-                </div>
-                <div class="item">
-                  <h4>11</h4>
-                </div>
-                <div class="item">
-                  <h4>12</h4>
+                  <div class="img-container">
+                    <img src="images/games/the-mystery-of-the-moon-1eaqa.avif" alt="">
+                  </div>
                 </div>
               </div>
             </div>
@@ -76,10 +105,14 @@
 
     <script>
         $(document).ready(function() {
-          var owl = $('.owl-carousel');
+          var owl = $('.featured-games');
           owl.owlCarousel({
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
             margin: 10,
             nav: true,
+            dots: false,
             loop: true,
             responsive: {
               0: {
