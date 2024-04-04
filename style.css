@@ -113,6 +113,7 @@ body {
     width: 1512px;
     overflow-x: hidden;
     background-color: #000;
+    color: #fff;
 }
 
 .site-main {
@@ -165,6 +166,15 @@ header nav ul li a {
     padding: 8px 15px;
 }
 
+header nav ul li button {
+    margin-top: 5px;
+    padding: 8px 15px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
 .contain {
     margin: 0 auto;
     max-width: 1200px;
@@ -174,26 +184,152 @@ header nav ul li a {
 /* Banner */
 .home-banner .banner-img {
     margin-bottom: 25px;
+    position: relative;
+}
+
+.home-banner .txt-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, rgba(11, 11, 11, 0) 0%, #0B0B0B 100%, #0B0B0B 100%);
+}
+
+.home-banner .txt-container #bannerContent {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-10%, -50%);
+    width: 30%;
+    font-size: 1.25em;
+    line-height: 1.75em;
+}
+
+.home-banner .txt-container .btnAction-container button {
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
 }
 
 .home-banner .banner-img .img-container {
-    height: 525px;
-    border-radius: 5px;
+    height: 505px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
 .home-banner .banner-img .img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;;
+    object-fit: cover;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .home-banner .banner-games button {
     display: block;
     width: 100%;
-    padding: 15px;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    text-align: left;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.home-banner .banner-games button:last-child {
+    margin-bottom: 0;
+}
+
+.home-banner .banner-games button.active {
+    background-color: rgb(255 255 255 / 38%);
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.home-banner .banner-games button:hover,
+.home-banner .banner-games button:active,
+.home-banner .banner-games button:focus {
+    background-color: rgb(255 255 255 / 38%);
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.home-banner .banner-games .btn-container {
+    display: flex;
+    align-items: center;
+}
+
+.home-banner .banner-games .btn-container .btn-img-container {
+    height: 65px;
+    width: 55px;
+    min-width: 55px;
+    max-width: 55px;
+}
+
+.home-banner .banner-games .btn-container .btn-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-banner .banner-games .btn-container span {
+    padding-left: 15px;
+}
+
+table {
+    width: 100%;
+}
+
+table caption {
     margin-bottom: 15px;
 }
+
+table thead tr th[scope="price"],
+table thead tr th[scope="date-added"],
+table thead tr th[scope="action"],
+table tbody tr td[data-price="price"],
+table tbody tr td[data-date="date"],
+table tbody tr td[data-action="action"] {
+    text-align: center;
+}
+
+
+
+/* Table style */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  /* Header row style */
+  th {
+    background-color: #f2f2f2;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  /* Alternating row style */
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  /* Data row style */
+  td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
 
 /* Carousel */
 .featured-games .item {
@@ -202,7 +338,7 @@ header nav ul li a {
 
 .featured-games .item .img-container {
     height: 300px;
-    border-radius: 5px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -214,11 +350,60 @@ header nav ul li a {
     opacity: 1;
 }
 
-
-
 .owl-carousel .owl-nav button span {
     color: #fff;
     border: 1px solid #fff;
     border-radius: 50%;
     padding: 1px 8px;
 }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    color: rgb(51, 51, 51);
+
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  .modal.show {
+    display: block;
+    opacity: 1;
+
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+    
