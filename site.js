@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Banner
 let img_index = 0;
 let bannerGameTitle = [
@@ -20,6 +21,82 @@ let bannerTxtContent = document.getElementById("bannerContentTxt");
 let btn_addWishlist = document.getElementById("btn_wishlist");
 let buttons = document.getElementsByClassName("bn-btn");
 
+=======
+// Preloader
+ $(function() {
+    setInterval(preloader, 2000);
+    function preloader(){
+        $("#preloader").fadeOut(1000);
+    };
+});
+
+// Sound
+let soundPlayer = document.getElementById("soundPlayer");
+let playSound = document.getElementById("playSound");
+let pauseSound = document.getElementById("pauseSound");
+let stopSound = document.getElementById("stopSound");
+
+// Play sound on page load
+playSound.style.display = "none";
+pauseSound.style.display = "inline-block";
+stopSound.style.display = "inline-block";
+
+playSound.addEventListener('click', function(){
+    playSound.style.display = "none";
+    pauseSound.style.display = "inline-block";
+    stopSound.style.display = "inline-block";
+    playAudio("play");
+});
+
+pauseSound.addEventListener('click', function(){
+    playSound.style.display = "inline-block";
+    pauseSound.style.display = "none";
+    stopSound.style.display = "inline-block";
+    playAudio("pause");
+});
+
+stopSound.addEventListener('click', function(){
+    playSound.style.display = "inline-block";
+    pauseSound.style.display = "none";
+    stopSound.style.display = "none";
+    playAudio("stop");
+});
+
+function playAudio(operation){
+    if(operation == "play"){
+        soundPlayer.play();
+    } else if(operation == "pause") {
+        soundPlayer.pause();
+    } else if(operation == "stop"){
+        soundPlayer.pause();
+        soundPlayer.currentTime = 0;
+    }
+}
+
+
+// Banner
+let img_index = 0;
+let bannerGameTitle = [
+    "Horizon Forbidden West™ Complete Edition",
+    "Marvel Rivals",
+    "Suicide Squad: Kill the Justice League",
+    "Wuthering Waves",
+    "VALORANT"
+];
+let bannerGames = [
+    ["images/games/banner/egs-horizon-forbidden-west-carousel-desktop-1920x1080-358478b6468a.avif", "Experience the epic Horizon Forbidden West™ in its entirety with bonus content and the Burning Shores expansion.", "#fff"],
+    ["images/games/banner/egs-marvel-rivals-carousel-deskto-1920x1080-c89aa53338e6.avif", "Marvel Rivals is a Super Hero Team-Based PVP Shooter! Let's ignite the battle!", "#fff"],
+    ["images/games/banner/egs-suicide-squad-ktjl-carousel-desktop-2560x1440-ff6f863521ef.avif", "The genre-drying third-person action shooter where the ultimate band of misfits must do the impossible: Kill the Justice League.", "#fff"],
+    ["images/games/banner/egs-wuthering-waves-carousel-dekstop-1248x702-db5877994dde.avif", "Brand new cross-platform open world ARPG! Discover, collect, and fight various monsters in an epic, immersive world.", "#fff"],
+    ["images/games/banner/egs-valorant-e8a2-defiance-carousel-desktop-1248x702-9d14cd1d4416.jpg", "Make some mischief with the young immortal that keeps foes guessing in both the heat of combat and the cold of death.", "#fff"]
+];
+let bannerImg = document.getElementById("bannerImg");
+let bannerTxt = document.getElementById("bannerContent");
+let bannerTxtContent = document.getElementById("bannerContentTxt");
+let btn_addWishlist = document.getElementById("btn_wishlist");
+let buttons = document.getElementsByClassName("bn-btn");
+
+>>>>>>> diegopinlac
 function updateBanner() {
     if(img_index == bannerGames.length-1){
         img_index = 0;
@@ -46,7 +123,11 @@ function updateBanner() {
     bannerTxtContent.innerHTML = bannerGames[img_index][1];
     bannerTxtContent.style.color = bannerGames[img_index][2];
 
+<<<<<<< HEAD
     btn_addWishlist.setAttribute("game", img_index);
+=======
+    btn_addWishlist.setAttribute("data-game", img_index);
+>>>>>>> diegopinlac
 }
 
 // Change banner every 5 secs
@@ -91,19 +172,37 @@ function changeBanner(index, thisClicked){
     bannerTxtContent.innerHTML = bannerGames[img_index][1];
     bannerTxtContent.style.color = bannerGames[img_index][2];
 
+<<<<<<< HEAD
     btn_addWishlist.setAttribute("game", img_index);
+=======
+    btn_addWishlist.setAttribute("data-game", img_index);
+>>>>>>> diegopinlac
 }
 
 let btn_wishlist = document.getElementById("btn_wishlist");
 let arr_wishlist = [];
 btn_wishlist.addEventListener("click", function(){
+<<<<<<< HEAD
     alert(`You have successfully added this game to your wishlist!`);
     arr_wishlist.push(btn_wishlist.getAttribute("game"));
+=======
+    if(!arr_wishlist.includes(btn_wishlist.getAttribute("game"))){
+        alert(`You have successfully added this game to your wishlist!`);
+        arr_wishlist.push(btn_wishlist.getAttribute("game"));
+    } else {
+        alert("This game is already in your wishlist!");
+    }
+    
+>>>>>>> diegopinlac
 });
 
 // Modal
 var modal = document.getElementById("myModal");
+<<<<<<< HEAD
 var btn = document.getElementById("btn_viewWishlist");
+=======
+var btn_viewWishlist = document.getElementById("btn_viewWishlist");
+>>>>>>> diegopinlac
 var span = document.getElementsByClassName("close")[0];
 
 function getDateNow() {
@@ -135,12 +234,17 @@ function getDateNow() {
 
 }
 
+<<<<<<< HEAD
 btn.onclick = function() {
+=======
+btn_viewWishlist.onclick = function() {
+>>>>>>> diegopinlac
   if(arr_wishlist.length != 0){
     let textContent = "";
     let wishlists = document.getElementById("wishlists");
 
     wishlists.innerHTML = " ";
+<<<<<<< HEAD
 
     for(let i=0; i<arr_wishlist.length; i++){
         textContent += `
@@ -149,6 +253,19 @@ btn.onclick = function() {
                 <td data-price="price">$100.00</td>
                 <td data-date="date">${getDateNow()}</td>
                 <td data-action="action"><button onclick="btn_removeGame(${arr_wishlist[i]})"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+=======
+    let counter = 0;
+
+    for(let i=0; i<arr_wishlist.length; i++){
+        counter++;
+        textContent += `
+            <tr>
+                <td data-counter="counter">${counter}</td>
+                <td data-title="title">${bannerGameTitle[arr_wishlist[i]]}</td>
+                <td data-price="price">$100.00</td>
+                <td data-date="date">${getDateNow()}</td>
+                <td data-action="action"><button class="round-black-btn" onclick="btn_removeGame(${arr_wishlist[i]})"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button></td>
+>>>>>>> diegopinlac
             </tr>
         `;
     }
@@ -171,6 +288,7 @@ function btn_removeGame(indexToRemove) {
     let wishlists = document.getElementById("wishlists");
 
     wishlists.innerHTML = " ";
+<<<<<<< HEAD
 
     for(let i=0; i<arr_wishlist.length; i++){
         textContent += `
@@ -179,6 +297,19 @@ function btn_removeGame(indexToRemove) {
                 <td data-price="price">$100.00</td>
                 <td data-date="date">${getDateNow()}</td>
                 <td><button onclick="btn_removeGame(${arr_wishlist[i]})"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+=======
+    let counter = 0;
+
+    for(let i=0; i<arr_wishlist.length; i++){
+        counter++;
+        textContent += `
+            <tr>
+                <td data-counter="counter">${counter}</td>
+                <td data-title="title">${bannerGameTitle[arr_wishlist[i]]}</td>
+                <td data-price="price">$100.00</td>
+                <td data-date="date">${getDateNow()}</td>
+                <td data-action="action"><button class="round-black-btn" onclick="btn_removeGame(${arr_wishlist[i]})"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button></td>
+>>>>>>> diegopinlac
             </tr>
         `;
     }
@@ -194,3 +325,52 @@ window.onclick = function(event) {
   }
 }
 
+<<<<<<< HEAD
+=======
+$(document).ready(function() {
+    var owl = $('.featured-games');
+    owl.owlCarousel({
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      margin: 10,
+      nav: true,
+      dots: false,
+      loop: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 5
+        }
+      }
+    })
+  });
+
+nakerback.render({
+    container: document.getElementById('space-container'),
+    waterMark : false,
+    particle : {
+        direction1: {x:100,y:100,z:100},
+        direction2: {x:-100,y:-100,z:-100},
+        life: 5,
+        power: 0.013,
+        texture: "https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_05.png",
+        number: 2000,
+        colorStart: [255,255,255,0.65],
+        colorEnd: [192,191,230,0.82],
+        sizeStart: 0.1,
+        sizeEnd: 0.2
+    },
+    environment : {
+        sensitivity : 0.96,
+        colorStart  : [0,0,0,1],
+        colorEnd    : [0, 0, 0,1],
+        gradient    : 'vertical'
+    }
+});
+>>>>>>> diegopinlac

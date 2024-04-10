@@ -3,7 +3,7 @@ Final project for the course CSIS 1280
 
 ## MEMBERS:
 * [Diego Pinlac II](https://diegopinlac.com/)
-* Yaolong Liu
+* [Yaolong Liu](https://github.com/YaolongLiu)
 
 ## TERM PROJECT:
 You are required to develop a website with a minimum of four pages on a topic of your choice. The project will be developed gradually during the term with the complete project due by last week of the classes.You will keep on adding the features learnt in the class to your project.
