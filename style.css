@@ -275,8 +275,6 @@ header nav ul li button {
     border-radius: 8px;
     border: none;
     cursor: pointer;
-<<<<<<< HEAD
-=======
     -webkit-transition: all 0.35s ease;
     -moz-transition: all 0.35s ease;
     -o-transition: all 0.35s ease;
@@ -292,7 +290,6 @@ header nav ul li button {
     -moz-transition: all 0.35s ease;
     -o-transition: all 0.35s ease;
     transition: all 0.35s ease;
->>>>>>> diegopinlac
 }
 
 .home-banner .banner-img .img-container {
@@ -364,11 +361,7 @@ header nav ul li button {
     object-fit: cover;
 }
 
-<<<<<<< HEAD
-.home-banner .banner-games .btn-container span {
-=======
 .home-banner .banner-games .btn-container span.game-name {
->>>>>>> diegopinlac
     padding-left: 15px;
 }
 
@@ -380,17 +373,11 @@ table caption {
     margin-bottom: 15px;
 }
 
-<<<<<<< HEAD
-table thead tr th[scope="price"],
-table thead tr th[scope="date-added"],
-table thead tr th[scope="action"],
-=======
 table thead tr th[data-scope="price"],
 table thead tr th[data-scope="date-added"],
 table thead tr th[data-scope="price"],
 table thead tr th[data-scope="action"],
 table tbody tr td[data-counter="counter"],
->>>>>>> diegopinlac
 table tbody tr td[data-price="price"],
 table tbody tr td[data-date="date"],
 table tbody tr td[data-action="action"] {
@@ -398,36 +385,6 @@ table tbody tr td[data-action="action"] {
 }
 
 
-<<<<<<< HEAD
-
-/* Table style */
-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  /* Header row style */
-  th {
-    background-color: #f2f2f2;
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-
-  /* Alternating row style */
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-
-  /* Data row style */
-  td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-
-=======
->>>>>>> diegopinlac
 /* Carousel */
 .featured-games {
     margin-bottom: 35px;
@@ -452,8 +409,6 @@ table {
     opacity: 1;
 }
 
-<<<<<<< HEAD
-=======
 .featured-games .item .img-container span {
     position: absolute;
     top: 14px;
@@ -508,7 +463,6 @@ table {
     right: 0;
 }
 
->>>>>>> diegopinlac
 .owl-carousel .owl-nav button span {
     color: #fff;
     border: 1px solid #fff;
@@ -520,8 +474,6 @@ table {
     transition: all .3s ease-in-out;
 }
 
-<<<<<<< HEAD
-=======
 .owl-theme .owl-nav [class*=owl-]:hover{
     background: transparent!important;
 }
@@ -539,7 +491,6 @@ table {
     margin-bottom: 55px;
 }
 
->>>>>>> diegopinlac
 /* Modal */
 .modal {
     display: none;
@@ -556,35 +507,15 @@ table {
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-<<<<<<< HEAD
-  }
-  
-  .modal.show {
-=======
 }
 
 .modal.show {
->>>>>>> diegopinlac
     display: block;
     opacity: 1;
 
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-<<<<<<< HEAD
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 10px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-  }
-  
-  .close {
-=======
 }
 
 .modal-content {
@@ -612,22 +543,10 @@ table {
 }
 
 .close {
->>>>>>> diegopinlac
     color: #aaa;
     float: right;
     font-size: 20px;
     font-weight: bold;
-<<<<<<< HEAD
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-    
-=======
 }
 
 .close:hover,
@@ -1085,4 +1004,3 @@ canvas{
 
 /* Responsiveness */
 
->>>>>>> diegopinlac
