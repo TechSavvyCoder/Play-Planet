@@ -1,3 +1,55 @@
+// Preloader
+ $(function() {
+    setInterval(preloader, 2000);
+    function preloader(){
+        $("#preloader").fadeOut(1000);
+    };
+});
+
+// Sound
+let soundPlayer = document.getElementById("soundPlayer");
+let playSound = document.getElementById("playSound");
+let pauseSound = document.getElementById("pauseSound");
+let stopSound = document.getElementById("stopSound");
+
+// Play sound on page load
+playSound.style.display = "none";
+pauseSound.style.display = "inline-block";
+stopSound.style.display = "inline-block";
+
+playSound.addEventListener('click', function(){
+    playSound.style.display = "none";
+    pauseSound.style.display = "inline-block";
+    stopSound.style.display = "inline-block";
+    playAudio("play");
+});
+
+pauseSound.addEventListener('click', function(){
+    playSound.style.display = "inline-block";
+    pauseSound.style.display = "none";
+    stopSound.style.display = "inline-block";
+    playAudio("pause");
+});
+
+stopSound.addEventListener('click', function(){
+    playSound.style.display = "inline-block";
+    pauseSound.style.display = "none";
+    stopSound.style.display = "none";
+    playAudio("stop");
+});
+
+function playAudio(operation){
+    if(operation == "play"){
+        soundPlayer.play();
+    } else if(operation == "pause") {
+        soundPlayer.pause();
+    } else if(operation == "stop"){
+        soundPlayer.pause();
+        soundPlayer.currentTime = 0;
+    }
+}
+
+
 // Banner
 let img_index = 0;
 let bannerGameTitle = [
@@ -46,7 +98,7 @@ function updateBanner() {
     bannerTxtContent.innerHTML = bannerGames[img_index][1];
     bannerTxtContent.style.color = bannerGames[img_index][2];
 
-    btn_addWishlist.setAttribute("game", img_index);
+    btn_addWishlist.setAttribute("data-game", img_index);
 }
 
 // Change banner every 5 secs
@@ -91,19 +143,24 @@ function changeBanner(index, thisClicked){
     bannerTxtContent.innerHTML = bannerGames[img_index][1];
     bannerTxtContent.style.color = bannerGames[img_index][2];
 
-    btn_addWishlist.setAttribute("game", img_index);
+    btn_addWishlist.setAttribute("data-game", img_index);
 }
 
 let btn_wishlist = document.getElementById("btn_wishlist");
 let arr_wishlist = [];
 btn_wishlist.addEventListener("click", function(){
-    alert(`You have successfully added this game to your wishlist!`);
-    arr_wishlist.push(btn_wishlist.getAttribute("game"));
+    if(!arr_wishlist.includes(btn_wishlist.getAttribute("game"))){
+        alert(`You have successfully added this game to your wishlist!`);
+        arr_wishlist.push(btn_wishlist.getAttribute("game"));
+    } else {
+        alert("This game is already in your wishlist!");
+    }
+    
 });
 
 // Modal
 var modal = document.getElementById("myModal");
-var btn = document.getElementById("btn_viewWishlist");
+var btn_viewWishlist = document.getElementById("btn_viewWishlist");
 var span = document.getElementsByClassName("close")[0];
 
 function getDateNow() {
@@ -135,20 +192,23 @@ function getDateNow() {
 
 }
 
-btn.onclick = function() {
+btn_viewWishlist.onclick = function() {
   if(arr_wishlist.length != 0){
     let textContent = "";
     let wishlists = document.getElementById("wishlists");
 
     wishlists.innerHTML = " ";
+    let counter = 0;
 
     for(let i=0; i<arr_wishlist.length; i++){
+        counter++;
         textContent += `
             <tr>
+                <td data-counter="counter">${counter}</td>
                 <td data-title="title">${bannerGameTitle[arr_wishlist[i]]}</td>
                 <td data-price="price">$100.00</td>
                 <td data-date="date">${getDateNow()}</td>
-                <td data-action="action"><button onclick="btn_removeGame(${arr_wishlist[i]})"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                <td data-action="action"><button class="round-black-btn" onclick="btn_removeGame(${arr_wishlist[i]})"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button></td>
             </tr>
         `;
     }
@@ -171,14 +231,17 @@ function btn_removeGame(indexToRemove) {
     let wishlists = document.getElementById("wishlists");
 
     wishlists.innerHTML = " ";
+    let counter = 0;
 
     for(let i=0; i<arr_wishlist.length; i++){
+        counter++;
         textContent += `
             <tr>
+                <td data-counter="counter">${counter}</td>
                 <td data-title="title">${bannerGameTitle[arr_wishlist[i]]}</td>
                 <td data-price="price">$100.00</td>
                 <td data-date="date">${getDateNow()}</td>
-                <td><button onclick="btn_removeGame(${arr_wishlist[i]})"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                <td data-action="action"><button class="round-black-btn" onclick="btn_removeGame(${arr_wishlist[i]})"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button></td>
             </tr>
         `;
     }
@@ -194,3 +257,49 @@ window.onclick = function(event) {
   }
 }
 
+$(document).ready(function() {
+    var owl = $('.featured-games');
+    owl.owlCarousel({
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      margin: 10,
+      nav: true,
+      dots: false,
+      loop: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 5
+        }
+      }
+    })
+  });
+
+nakerback.render({
+    container: document.getElementById('space-container'),
+    waterMark : false,
+    particle : {
+        direction1: {x:100,y:100,z:100},
+        direction2: {x:-100,y:-100,z:-100},
+        life: 5,
+        power: 0.013,
+        texture: "https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_05.png",
+        number: 2000,
+        colorStart: [255,255,255,0.65],
+        colorEnd: [192,191,230,0.82],
+        sizeStart: 0.1,
+        sizeEnd: 0.2
+    },
+    environment : {
+        sensitivity : 0.96,
+        colorStart  : [0,0,0,1],
+        colorEnd    : [0, 0, 0,1],
+        gradient    : 'vertical'
+    }
+});

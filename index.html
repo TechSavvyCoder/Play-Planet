@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Planet</title>
 
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+
     <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
@@ -15,207 +17,299 @@
     <script src="assets/owlcarousel/owl.carousel.js"></script>
 
     <script src="site.js" defer></script>
+
 </head>
-<body>
+<body onload="playAudio('play')">
+    <div id="preloader">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80">
+        <defs>
+          <clipPath id="circleClip">
+            <circle cx="40" cy="40" r="30" />
+          </clipPath>
+        </defs>
+        
+        <circle cx="40" cy="40" r="30" fill="none" stroke-width="2" stroke="currentColor" />
+      
+        <g clip-path="url(#circleClip)">
+          <path transform="translate(0, 20)" d="M22.026 37.678c-.244 2.958-.838 4.653.787 5.849.297.532.89 1.06.89-1.08 0-2.675 4.77-6.065 6.028-8.973 1.258-2.908-2.097-3.34-4.298-4.587-2.201-1.246-4.642.898-5.38-1.429-.739-2.326 1.38-4.42 4.49-6.181 3.109-1.762-.368-5.002 2.62-5.002 2.987 0 4.542-4.985 5.258-9.14.716-4.154-5.678-7.544-10.395-7.095C17.31.489 11.405 9.744 11.23 11.29c-.175 1.545-2.568 1.013-6.394 1.18-3.826.166-.35 6.364 2.393 4.885s4.647 1.08 5.067 4.77c.419 3.688 5.608 6.363 6.638 6.363 1.031 0 2.376 1.13 2.08 3.008-.298 1.878 1.257 3.224 1.012 6.182ZM40.614 17.479c0 2.234-2.75 1.63-2.68 5.035-2.321 3.876-1.107 6.294.858 6.896 1.965.603 3.036 1.277 4.197 5.94 1.16 4.663 4.34 1.4 5.376-1.029 1.036-2.428.982-9.697 4.215-7.747 3.232 1.95 7.126 1.028 9.823 1.028s5.911-5.815 6.161-7.092c.25-1.276 2.733-4.716 5.858-5.567 3.126-.85 2.322-2.553 0-3.811-2.322-1.26-9.465.602-10.68-2.802-1.214-3.404-4.947-2.11-7.572.62-2.626 2.731-4.876 3.086-10.056 2.182-5.179-.905-5.5 4.113-5.5 6.347Z" fill="currentColor">
+                <animateTransform attributeName="transform" attributeType="XML" type="translate" from="0, 20" to="-80, 20" dur="2s" repeatCount="indefinite"/>
+          </path>
+          
+          <path transform="translate(80, 20)"  d="M22.026 37.678c-.244 2.958-.838 4.653.787 5.849.297.532.89 1.06.89-1.08 0-2.675 4.77-6.065 6.028-8.973 1.258-2.908-2.097-3.34-4.298-4.587-2.201-1.246-4.642.898-5.38-1.429-.739-2.326 1.38-4.42 4.49-6.181 3.109-1.762-.368-5.002 2.62-5.002 2.987 0 4.542-4.985 5.258-9.14.716-4.154-5.678-7.544-10.395-7.095C17.31.489 11.405 9.744 11.23 11.29c-.175 1.545-2.568 1.013-6.394 1.18-3.826.166-.35 6.364 2.393 4.885s4.647 1.08 5.067 4.77c.419 3.688 5.608 6.363 6.638 6.363 1.031 0 2.376 1.13 2.08 3.008-.298 1.878 1.257 3.224 1.012 6.182ZM40.614 17.479c0 2.234-2.75 1.63-2.68 5.035-2.321 3.876-1.107 6.294.858 6.896 1.965.603 3.036 1.277 4.197 5.94 1.16 4.663 4.34 1.4 5.376-1.029 1.036-2.428.982-9.697 4.215-7.747 3.232 1.95 7.126 1.028 9.823 1.028s5.911-5.815 6.161-7.092c.25-1.276 2.733-4.716 5.858-5.567 3.126-.85 2.322-2.553 0-3.811-2.322-1.26-9.465.602-10.68-2.802-1.214-3.404-4.947-2.11-7.572.62-2.626 2.731-4.876 3.086-10.056 2.182-5.179-.905-5.5 4.113-5.5 6.347Z" fill="currentColor">
+            <animateTransform attributeName="transform" attributeType="XML" type="translate" from="80, 20" to="0, 20" dur="2s" repeatCount="indefinite"/>
+          </path>
+        </g>
+      </svg>
+    </div>
     <div id="space-container"></div>
     <div id="wrapper">
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="#">Store</a></li>
-                    <li><a href="#">Distribution</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Unreal Engine</a></li>
-                    <li class="float-right"><button id="btn_viewWishlist"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;My Wishlist</button></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <br><br>
-            <div class="site-main">
-              <div id="home-banner" class="home-banner">
-                <div class="three_fourth banner-img">
-                  <div class="img-container">
-                    <img id="bannerImg" src="images/games/banner/egs-horizon-forbidden-west-carousel-desktop-1920x1080-358478b6468a.avif" alt="banner image">
-                  </div>
-                  <div class="txt-container" >
-                    <span id="bannerContent">
-                      <p id="bannerContentTxt">Experience the epic Horizon Forbidden West™ in its entirety with bonus content and the Burning Shores expansion</p>
-                      <div class="btnAction-container">
-                        <!-- <button>Buy Now</button> -->
-                        <button id="btn_wishlist" game="0"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Add to Wishlist</button>
-                      </div>
-                    </span>
-                    
-                  </div>
+      <header>
+          <nav>
+              <ul>
+                  <li><img class="logo" src="images/icon.png" alt="Logo"></li>
+                  <li><a href="#">Store</a></li>
+                  <li><a href="pages/meet-the-team.html">Meet the team</a></li>
+                  <li><a href="pages/support.html">Support</a></li>
+                  <li><a href="pages/sound-game.html">Sound Game</a></li>
+                  <li class="float-right"><button id="btn_viewWishlist"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;My Wishlist</button></li>
+                  <li class="float-right">
+                    <audio id="soundPlayer" preload="auto" loop>
+                      <source src="media/outer-space-54040.mp3" type="audio/mp3">
+                      <a href="media/outer-space-54040.mp3" download>Your browser does not support the audio element.</a>
+                    </audio>
+                    <button id="playSound" onclick="document.getElementById('soundPlayer').play()" title="Play sound"><i class="fa fa-play" aria-hidden="true"></i> Play Sound</button>
+                    <button id="pauseSound" onclick="document.getElementById('soundPlayer').pause()" title="Pause sound"><i class="fa fa-pause" aria-hidden="true"></i> Pause Sound</button>
+                    <button id="stopSound" onclick="document.getElementById('soundPlayer').pause(); document.getElementById('soundPlayer').currentTime = 0;" title="Stop sound"><i class="fa fa-stop" aria-hidden="true"></i> Stop Sound</button>
+                  </li>
+              </ul>
+          </nav>
+      </header>
+      <main>
+          <br><br>
+          <div class="site-main">
+            <div id="home-banner" class="home-banner">
+              <div class="three_fourth banner-img">
+                <div class="img-container">
+                  <img id="bannerImg" src="images/games/banner/egs-horizon-forbidden-west-carousel-desktop-1920x1080-358478b6468a.avif" alt="banner image">
                 </div>
-                <div class="one_fourth last banner-games">
-                  <button class="bn-btn active" onclick="changeBanner(0, this)">
-                    <div class="btn-container">
-                      <div class="btn-img-container">
-                        <img src="images/games/banner/egs-horizon-forbidden-west-carousel-thumb-1200x1600-011a41336cf9.avif" alt="Horizon Forbidden West™ Complete Edition">
-                      </div>
-                      <span>Horizon Forbidden West™ Complete Edition</span>
+                <div class="txt-container" >
+                  <div id="bannerContent">
+                    <p id="bannerContentTxt">Experience the epic Horizon Forbidden West™ in its entirety with bonus content and the Burning Shores expansion</p>
+                    <div class="btnAction-container">
+                      <button id="btn_wishlist" data-game="0"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Add to Wishlist</button>
                     </div>
-                  </button>
-                  <button class="bn-btn" onclick="changeBanner(1, this)">
-                    <div class="btn-container">
-                      <div class="btn-img-container">
-                        <img src="images/games/banner/marvel-rivals-wq3mr.avif" alt="Marvel Rivals">
-                      </div>
-                      <span>Marvel Rivals</span>
-                    </div>
-                  </button>
-                  <button class="bn-btn" onclick="changeBanner(2, this)">
-                    <div class="btn-container">
-                      <div class="btn-img-container">
-                        <img src="images/games/banner/egs-suicide-squad-ktjl-carousel-thumb-1200x1600-d22ec52f5e77.webp" alt="Suicide Squad: Kill the Justice League">
-                      </div>
-                      <span>Suicide Squad: Kill the Justice League</span>
-                    </div>
-                  </button>
-                  <button class="bn-btn" onclick="changeBanner(3, this)">
-                    <div class="btn-container">
-                      <div class="btn-img-container">
-                        <img src="images/games/banner/egs-wuthering-waves-carousel-thumb-1200x1600-51d4a3f0e5c2.avif" alt="Wuthering Waves">
-                      </div>
-                      <span>Wuthering Waves</span>
-                    </div>
-                  </button>
-                  <button class="bn-btn" onclick="changeBanner(4, this)">
-                    <div class="btn-container">
-                      <div class="btn-img-container">
-                        <img src="images/games/banner/egs-valorant-e8a2-defiance-carousel-thumb-315x399-10fa3af65fef.avif" alt="">
-                      </div>
-                      <span>VALORANT</span>
-                    </div>
-                  </button>
+                  </div>
+                  
                 </div>
-                <div class="clear"></div>
               </div>
+              <div class="one_fourth last banner-games">
+                <button class="bn-btn active" onclick="changeBanner(0, this)">
+                  <span class="btn-container">
+                    <span class="btn-img-container">
+                      <img src="images/games/banner/egs-horizon-forbidden-west-carousel-thumb-1200x1600-011a41336cf9.avif" alt="Horizon Forbidden West™ Complete Edition">
+                    </span>
+                    <span class="game-name">Horizon Forbidden West™ Complete Edition</span>
+                  </span>
+                </button>
+                <button class="bn-btn" onclick="changeBanner(1, this)">
+                  <span class="btn-container">
+                    <span class="btn-img-container">
+                      <img src="images/games/banner/marvel-rivals-wq3mr.avif" alt="Marvel Rivals">
+                    </span>
+                    <span class="game-name">Marvel Rivals</span>
+                  </span>
+                </button>
+                <button class="bn-btn" onclick="changeBanner(2, this)">
+                  <span class="btn-container">
+                    <span class="btn-img-container">
+                      <img src="images/games/banner/egs-suicide-squad-ktjl-carousel-thumb-1200x1600-d22ec52f5e77.webp" alt="Suicide Squad: Kill the Justice League">
+                    </span>
+                    <span class="game-name">Suicide Squad: Kill the Justice League</span>
+                  </span>
+                </button>
+                <button class="bn-btn" onclick="changeBanner(3, this)">
+                  <span class="btn-container">
+                    <span class="btn-img-container">
+                      <img src="images/games/banner/egs-wuthering-waves-carousel-thumb-1200x1600-51d4a3f0e5c2.avif" alt="Wuthering Waves">
+                    </span>
+                    <span class="game-name">Wuthering Waves</span>
+                  </span>
+                </button>
+                <button class="bn-btn" onclick="changeBanner(4, this)">
+                  <span class="btn-container">
+                    <span class="btn-img-container">
+                      <img src="images/games/banner/egs-valorant-e8a2-defiance-carousel-thumb-315x399-10fa3af65fef.avif" alt="">
+                    </span>
+                    <span class="game-name">VALORANT</span>
+                  </span>
+                </button>
+              </div>
+              <div class="clear"></div>
+            </div>
 
-              <h2>Featured Discounts</h2>
-              <div class="featured-games owl-carousel owl-theme">
-                <div class="item">
-                  <div class="img-container">
-                    <img src="images/games/725818d8-9768-4a6a-a723-3039aaee1e23_1200x1600-3b6116d3fc1b566b71251d04bce27938.avif" alt="">
+            
+
+            <h2>Featured Discounts &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></h2>
+            <div class="featured-games owl-carousel owl-theme">
+              <div class="item">
+                <div class="img-container">
+                  <img src="images/games/725818d8-9768-4a6a-a723-3039aaee1e23_1200x1600-3b6116d3fc1b566b71251d04bce27938.avif" alt="">
+                  <span>30% Off</span>
+                </div>
+                <div class="txt-container">
+                  <span class="category">Base Game</span>
+                  <h3>Farming Simulator 22</h3>
+                  <div class="price-container">
+                    <span class="price orig-price">CA $38.99</span>
+                    <span class="price sale-price">CA $27.29</span>
                   </div>
                 </div>
-                <div class="item">
-                  <div class="img-container">
-                    <img src="images/games/barotrauma-mt24m.avif" alt="">
+              </div>
+              <div class="item">
+                <div class="img-container">
+                  <img src="images/games/barotrauma-mt24m.avif" alt="">
+                  <span>30% Off</span>
+                </div>
+                <div class="txt-container">
+                  <span class="category">Base Game</span>
+                  <h3>Baro Trauma</h3>
+                  <div class="price-container">
+                    <span class="price orig-price">CA $38.99</span>
+                    <span class="price sale-price">CA $27.29</span>
                   </div>
                 </div>
-                <div class="item">
-                  <div class="img-container">
-                    <img src="images/games/download-the-lord-of-the-rings--gollum-offer-clg3r.avif" alt="">
+              </div>
+              <div class="item">
+                <div class="img-container">
+                  <img src="images/games/download-the-lord-of-the-rings--gollum-offer-clg3r.avif" alt="">
+                  <span>30% Off</span>
+                </div>
+                <div class="txt-container">
+                  <span class="category">Base Game</span>
+                  <h3>The Lord of the Rings: Gollum<sup>TM</sup> - Precious Edition</h3>
+                  <div class="price-container">
+                    <span class="price orig-price">CA $38.99</span>
+                    <span class="price sale-price">CA $27.29</span>
                   </div>
                 </div>
-                <div class="item">
-                  <div class="img-container">
-                    <img src="images/games/EGS_FINALFANTASYVIIREMAKEINTERGRADE_SquareEnix_S2_1200x1600-e147110cf8dd1bc8c96810a5867b3475.avif" alt="">
+              </div>
+              <div class="item">
+                <div class="img-container">
+                  <img src="images/games/EGS_FINALFANTASYVIIREMAKEINTERGRADE_SquareEnix_S2_1200x1600-e147110cf8dd1bc8c96810a5867b3475.avif" alt="">
+                  <span>30% Off</span>
+                </div>
+                <div class="txt-container">
+                  <span class="category">Base Game</span>
+                  <h3>Final Fantasy VII Remake Integrade</h3>
+                  <div class="price-container">
+                    <span class="price orig-price">CA $38.99</span>
+                    <span class="price sale-price">CA $27.29</span>
                   </div>
                 </div>
-                <div class="item">
-                  <div class="img-container">
-                    <img src="images/games/EGS_KINGDOMHEARTSMelodyofMemory_SQUAREENIX_S2-1200x1600-bc6932a1e7cbb7eeca4f66740f711f11.avif" alt="">
+              </div>
+              <div class="item">
+                <div class="img-container">
+                  <img src="images/games/EGS_KINGDOMHEARTSMelodyofMemory_SQUAREENIX_S2-1200x1600-bc6932a1e7cbb7eeca4f66740f711f11.avif" alt="">
+                  <span>30% Off</span>
+                </div>
+                <div class="txt-container">
+                  <span class="category">Base Game</span>
+                  <h3>Kingdom Hearts Melody of Memory</h3>
+                  <div class="price-container">
+                    <span class="price orig-price">CA $38.99</span>
+                    <span class="price sale-price">CA $27.29</span>
                   </div>
                 </div>
-                <div class="item">
-                  <div class="img-container">
-                    <img src="images/games/EGS_OUTRIDERS_PeopleCanFly_S2_1200x1600-069feda6719ffcdf11667a8c16f65b17.avif" alt="">
+              </div>
+              <div class="item">
+                <div class="img-container">
+                  <img src="images/games/EGS_OUTRIDERS_PeopleCanFly_S2_1200x1600-069feda6719ffcdf11667a8c16f65b17.avif" alt="">
+                  <span>30% Off</span>
+                </div>
+                <div class="txt-container">
+                  <span class="category">Base Game</span>
+                  <h3>Outriders</h3>
+                  <div class="price-container">
+                    <span class="price orig-price">CA $38.99</span>
+                    <span class="price sale-price">CA $27.29</span>
                   </div>
                 </div>
-                <div class="item">
-                  <div class="img-container">
-                    <img src="images/games/lisa--the-painful-6pj1m.avif" alt="">
+              </div>
+              <div class="item">
+                <div class="img-container">
+                  <img src="images/games/lisa--the-painful-6pj1m.avif" alt="">
+                  <span>30% Off</span>
+                </div>
+                <div class="txt-container">
+                  <span class="category">Base Game</span>
+                  <h3>LISA: The Painful - Definitive Edition</h3>
+                  <div class="price-container">
+                    <span class="price orig-price">CA $38.99</span>
+                    <span class="price sale-price">CA $27.29</span>
                   </div>
                 </div>
-                <div class="item">
-                  <div class="img-container">
-                    <img src="images/games/my-demon-wife-1njy4.avif" alt="">
+              </div>
+              <div class="item">
+                <div class="img-container">
+                  <img src="images/games/my-demon-wife-1njy4.avif" alt="">
+                  <span>30% Off</span>
+                </div>
+                <div class="txt-container">
+                  <span class="category">Base Game</span>
+                  <h3>My Demon Wife</h3>
+                  <div class="price-container">
+                    <span class="price orig-price">CA $38.99</span>
+                    <span class="price sale-price">CA $27.29</span>
                   </div>
                 </div>
-                <div class="item">
-                  <div class="img-container">
-                    <img src="images/games/the-mystery-of-the-moon-1eaqa.avif" alt="">
+              </div>
+              <div class="item">
+                <div class="img-container">
+                  <img src="images/games/the-mystery-of-the-moon-1eaqa.avif" alt="">
+                  <span>30% Off</span>
+                </div>
+                <div class="txt-container">
+                  <span class="category">Base Game</span>
+                  <h3>The Mystery Of The Moon</h3>
+                  <div class="price-container">
+                    <span class="price orig-price">CA $38.99</span>
+                    <span class="price sale-price">CA $27.29</span>
                   </div>
                 </div>
               </div>
             </div>
-        </main>
-        <footer></footer>
+
+            <div class="video-container">
+              <iframe height="500" src="https://www.youtube-nocookie.com/embed/XbofnUWolHE?si=HImdkJYh_bAaavx3&amp;controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="align-center">
+              <div class="one_third">
+                TEST 1
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab eligendi magni nulla pariatur hic aperiam earum tempora maxime quasi accusantium, nihil blanditiis vitae assumenda obcaecati aut, deserunt adipisci quas nostrum?</p>
+              </div>
+              <div class="one_third">
+                TEST 2
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At mollitia expedita recusandae, amet obcaecati fugit! At, asperiores sequi soluta beatae temporibus rerum, iure aut odio quaerat nesciunt repellendus molestiae minus?</p>
+              </div>
+              <div class="one_third last">
+                TEST 3
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio adipisci quo dolorum, nesciunt officiis earum impedit, quia ab modi facilis eaque totam eius consectetur ullam animi reprehenderit laboriosam tempora aperiam.</p>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+      </main>
+      <footer>
+        <div class="site-main">
+          <p>Copyright &copy; 2024, Play Planet, Inc. All rights reserved. Made by <a href="https://diegopinlac.com/" target="_blank">Diego Pinlac</a> and <a href="https://github.com/YaolongLiu" target="_blank">Yaolong Liu</a><br>Other brands or product names are the trademarks of their respective owners.</p>
+        </div>
+      </footer>
     </div>
 
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <table>
-          <caption>My Wishlist</caption>
-          <thead>
-              <tr>
-                  <th scope="title">Title</th>
-                  <th scope="price">Price</th>
-                  <th scope="date-added">Date Added</th>
-                  <th scope="action">Action</th>
-              </tr>
-          </thead>
-          <tbody id="wishlists"></tbody>
-      </table>
+
+        <div class="table-wishlist">
+          <table>
+            <caption>My Wishlist</caption>
+            <thead>
+                <tr>
+                    <th data-scope="counter">No.</th>
+                    <th data-scope="title">Game Title</th>
+                    <th data-scope="price">Price</th>
+                    <th data-scope="date-added">Date Added</th>
+                    <th data-scope="action">Action</th>
+                </tr>
+            </thead>
+            <tbody id="wishlists"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <script src='https://d23jutsnau9x47.cloudfront.net/back/v1.0.9/viewer.js' ></script>
 
-    <script>
-      $(document).ready(function() {
-        var owl = $('.featured-games');
-        owl.owlCarousel({
-          autoplay: true,
-          autoplayTimeout: 5000,
-          autoplayHoverPause: true,
-          margin: 10,
-          nav: true,
-          dots: false,
-          loop: true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            600: {
-              items: 3
-            },
-            1000: {
-              items: 5
-            }
-          }
-        })
-      })
-    </script>
-
-    <script>
-        nakerback.render({
-            container: document.getElementById('space-container'),
-            waterMark : false,
-            particle : {
-                direction1: {x:100,y:100,z:100},
-                direction2: {x:-100,y:-100,z:-100},
-                life: 5,
-                power: 0.013,
-                texture: "https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_05.png",
-                number: 2000,
-                colorStart: [255,255,255,0.65],
-                colorEnd: [192,191,230,0.82],
-                sizeStart: 0.1,
-                sizeEnd: 0.2
-            },
-            environment : {
-                sensitivity : 0.96,
-                colorStart  : [0,0,0,1],
-                colorEnd    : [0, 0, 0,1],
-                gradient    : 'vertical'
-            }
-        });
-    </script>
 </body>
 </html>
