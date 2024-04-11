@@ -1,4 +1,4 @@
-# Epic-Games
+# Play Planet
 Final project for the course CSIS 1280
 
 ## MEMBERS:
