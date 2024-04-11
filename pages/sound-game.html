@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sound Game - Play Planet</title>
+    <title>Interactive Game - Play Planet</title>
+
+    <meta property="og:image" content="images/meta_image.jpg">
+    <meta property="og:description" content='Play Planet is an online platform developed for educational purposes, showcasing a wide variety of digital games as part of a school project.'>
+	  <meta property="og:url" content="https://diegopinlac.com/play-planet/" >
+    <meta name="keywords" content="Play planet, game store, store, game, top games, upcoming">
 
     <link rel="shortcut icon" href="../images/icon.png" type="image/x-icon">
 
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
     <script type="text/paperscript" canvas="myCanvas" src="sound-game.js" defer></script>
 </head>
-<body class="page">
+<body class="page page-interactive-game">
     <div id="wrapper">
       <header>
+          <img class="logo" src="../images/icon.png" alt="Logo">
           <nav>
-              <ul>
-                    <li><img class="logo" src="../images/icon.png" alt="Logo"></li>
-                    <li><a href="../index.html">Store</a></li>
-                    <li><a href="meet-the-team.html">Meet the team</a></li>
-                    <li><a href="support.html">Support</a></li>
-                    <li><a class="active" href="sound-game.html">Sound Game</a></li>
+              <a href="#" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+              <ul id="toggled">
+                  <li><a href="../index.html">Store</a></li>
+                  <li><a href="meet-the-team.html">Meet the team</a></li>
+                  <li><a href="support.html">Support</a></li>
+                  <li><a href="references.html">References</a></li>
+                  <li><a class="active" href="sound-game.html">Sample Interactive Game</a></li>
               </ul>
           </nav>
       </header>
@@ -35,8 +43,52 @@
 
       </main>
       <footer>
+        <div class="foot-container">
+          <div class="site-main">
+              <div class="two_fourth">
+                  <img class="foot-logo" src="../images/icon.png" alt="Play Planet Logo">
+                  <p><strong>Play Planet</strong> is an online platform developed for educational purposes, showcasing a wide variety of digital games as part of a school project.</p>
+                  ---
+                  <p>Images on this website are trademarks of their respective owners. Unauthorized use may violate copyright laws. Their presence here is for informational purposes only and does not imply endorsement or affiliation. We respect intellectual property rights. Contact us if you believe your rights have been infringed</p>
+              </div>
+              <div class="one_fourth permalinks">
+                  <p class="foot-title">Permalinks</p>
+                  <ul>
+                      <li><a href="../index.html">Store</a></li>
+                      <li><a href="news-events.html">Meet the Team</a></li>
+                      <li><a href="references.html">Support</a></li>
+                      <li><a href="contact-us.html">Sample Interactive Game</a></li>
+                      <li><a href="references.html">References</a></li>
+                  </ul>
+              </div>
+              <div class="one_fourth last">
+                  <p class="foot-title">Contact Us</p>
+                  <p><i class="fa fa-code-fork" aria-hidden="true"></i> &nbsp;Diego Pinlac</p>
+                  <ul>
+                      <li><a href="https://diegopinlac.com/"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
+                      <li><a href="https://www.linkedin.com/in/engr-diego-pinlac-ii-74077b110/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                      <li><a href="https://www.linkedin.com/in/engr-diego-pinlac-ii-74077b110/"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                      <li><a href="mailto:pinlacd@student.douglascollege.ca"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                  </ul>
+
+                  <p><i class="fa fa-code-fork" aria-hidden="true"></i> &nbsp;Yaolong Liu</p>
+                  <ul>
+                      <li><a href="https://yaolongliu.artstation.com/"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
+                      <li><a href="https://www.linkedin.com/in/yaolong-liu-67310486/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                      <li><a href="https://github.com/YaolongLiu"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                      <li><a href="mailto:liuy@student.douglascollege.ca"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                  </ul>
+              </div>
+              <div class="clear"></div>
+          </div>
+        </div>
         <div class="site-main">
-          <p>Copyright &copy; 2024, Play Planet, Inc. All rights reserved. Made by <a href="https://diegopinlac.com/" target="_blank">Diego Pinlac</a> and <a href="https://github.com/YaolongLiu" target="_blank">Yaolong Liu</a><br>Other brands or product names are the trademarks of their respective owners.</p>
+          <hr class="footer-divider">
+        </div>
+        <div class="foot-copyright-container">
+          <div class="site-main">
+            <p class="align-center">Copyright &copy; 2024, Play Planet, Inc. All rights reserved. Made by <a href="https://diegopinlac.com/" target="_blank">Diego Pinlac</a> and <a href="https://github.com/YaolongLiu" target="_blank">Yaolong Liu</a><br>Other brands or product names are the trademarks of their respective owners.</p>
+          </div>
         </div>
       </footer>
     </div>

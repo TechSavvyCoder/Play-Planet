@@ -98,6 +98,21 @@ Version:        1.0
     clear: both;
 }
 
+/* ---------- Container ---------- */
+
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
 
 /* --------------------------------- Main Styles --------------------------------- */
 * {
@@ -111,7 +126,7 @@ body {
     font-family: 'Inter', Raleway, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0 auto;
     padding: 0;
-    width: 1512px;
+    width: 100%;
     overflow-x: hidden;
     background-color: #000;
     color: #fff;
@@ -122,6 +137,10 @@ body {
     margin: 0 auto;
 }
 
+sup {
+    font-size: 8px;
+}
+
 h1 { font-size: 1.5rem; color: #fff; }
 h2 { font-size: 1.25rem; color: #fff; }
 h3 { font-size: 1rem; }
@@ -129,8 +148,13 @@ h4 { font-size: 0.75rem; }
 h5 { font-size: 0.5rem; }
 h6 { font-size: 0.25rem; }
 
+a {
+    color: #0daef7;
+}
+
 iframe {
     width: 100%;
+    border: none;
 }
 
 #space-container {
@@ -142,28 +166,27 @@ iframe {
     z-index: -1;
 }
 
+/* Responsive Navigation */
 header {
+    position: relative;
     background-color: #18181ccc;
-}
-
-header nav {
+    overflow: hidden;
     padding: 15px 20px;
 }
 
-header nav ul {
-    position: relative;
-    padding-left: 45px;
-}
-
-header nav ul .logo {
-    position: absolute;
-    top: 0;
-    left: 0;
+header img {
     height: 35px;
+    width: 35px;
+    float: left;
 }
 
-header nav ul li {
-    display: inline-block;
+header nav {
+    float: left;  
+    width: calc(100% - 35px);
+}
+
+header nav ul {
+    padding-left: 45px;
 }
 
 header nav ul li:first-child a {
@@ -198,22 +221,39 @@ header nav ul li a.active {
 }
 
 header nav ul li button {
-    margin-top: 5px;
+    margin-top: 3px;
     padding: 8px 15px;
     background-color: transparent;
     border: none;
     color: #fff;
     cursor: pointer;
+    -webkit-transition: all 0.35s ease;
+    -moz-transition: all 0.35s ease;
+    -o-transition: all 0.35s ease;
+    transition: all 0.35s ease;
 }
 
-header nav ul li button {
-    margin-top: 5px;
-    padding: 8px 15px;
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+header nav ul li button:hover,
+header nav ul li button:active,
+header nav ul li button:focus {
+    color: rgb(0, 116, 228);
+    -webkit-transition: all 0.35s ease;
+    -moz-transition: all 0.35s ease;
+    -o-transition: all 0.35s ease;
+    transition: all 0.35s ease;
 }
+
+#menu-toggle {
+    display: block;
+    float: right;
+    color: white;
+    font-size: 28px;
+}
+
+#toggled {
+    display: none;
+}
+
 
 .contain {
     margin: 0 auto;
@@ -221,10 +261,21 @@ header nav ul li button {
     width: 100%;
 }
 
+main {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.page-interactive-game main {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 /* Preloader */
 #preloader {
     position: fixed;
-    width: 100%;
+    width: inherit;
     height: 100vh;
     z-index: 99999;
     background-color: #000000e8;
@@ -387,7 +438,11 @@ table tbody tr td[data-action="action"] {
 
 /* Carousel */
 .featured-games {
-    margin-bottom: 35px;
+    margin-bottom: 55px;
+}
+
+.featured-games.popular-games {
+    margin-bottom: 0;
 }
 
 .featured-games .item {
@@ -444,7 +499,7 @@ table tbody tr td[data-action="action"] {
     margin-bottom: 8px;
 }
 
-.featured-games .item .txt-container .price-container .price {
+.item .txt-container .price-container .price {
     color: #fff;
     font-size: 14px;
     font-weight: normal;
@@ -452,7 +507,12 @@ table tbody tr td[data-action="action"] {
     letter-spacing: 0.2px;
 }
 
-.featured-games .item .txt-container .price-container .orig-price {
+.item .txt-container .price-container .unavailable {
+    color: rgba(245, 245, 245, 0.6);
+    display: block;
+}
+
+.item .txt-container .price-container .orig-price {
     color: rgba(245, 245, 245, 0.6);
     text-decoration: line-through;
 }
@@ -488,7 +548,78 @@ table tbody tr td[data-action="action"] {
 }
 
 .video-container {
-    margin-bottom: 55px;
+    margin-bottom: 35px;
+}
+
+/* Top Games */
+.top_games {
+    margin-bottom: 35px;
+}
+
+.top-container {
+    max-height: 447px;
+    overflow-y: auto;
+}
+
+.top-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.top-container::-webkit-scrollbar-track {
+    background: #18181ccc; 
+}
+
+.top-container::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 15px;
+
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.top-container::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 116, 228); 
+
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.top_games .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.top_games .item:last-child {
+    margin-bottom: 0;
+}
+
+.top_games .item .img-container {
+    height: 65px;
+    width: 55px;
+    min-width: 55px;
+    max-width: 55px;
+}
+
+.top_games .item .img-container {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.top_games .txt-container {
+    padding-left: 15px;
+}
+
+.top_games .item .txt-container h4 {
+    color: rgb(245, 245, 245);
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    margin: 0;
+    margin-bottom: 8px;
 }
 
 /* Modal */
@@ -523,7 +654,7 @@ table tbody tr td[data-action="action"] {
     margin: 70px auto;
     padding: 10px;
     border: 1px solid #888;
-    width: 80%;
+    width: 90%;
     border-radius: 10px;
 }
 
@@ -607,17 +738,86 @@ table tbody tr td[data-action="action"] {
 /* Footer */
 footer {
     background-color: rgb(42, 42, 42);
-    margin-top: 15px;
-    padding: 8px 0;
-    text-align: center;
-}
-footer p {
-    font-size: 0.85em;
-    line-height: 1.7em;
 }
 
-a {
-    color: #0daef7;
+.footer-divider {
+    border-style: solid none none;
+    border-color: #333;
+}
+
+.foot-container {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.foot-container .foot-logo {
+    width: 80px;
+}
+
+.foot-container p {
+    line-height: 1.7em;
+    font-size: 14px;
+}
+
+.foot-container .foot-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.foot-container .last ul {
+    padding-left: 20px;
+}
+
+.foot-container .last ul li {
+    display: inline-block;
+}
+
+.foot-container .permalinks ul li a {
+    font-size: 14px;
+}
+
+.foot-container .last ul li a {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.foot-container ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.foot-container ul li {
+    margin-bottom: 8px;
+}
+
+
+.foot-container a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.foot-container a:hover,
+.foot-container a:active,
+.foot-container a:focus {
+    color: #0daef7
+}
+
+footer a:hover,
+footer a:active,
+footer a:focus {
+    text-decoration: underline;
+}
+
+
+.foot-copyright-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.foot-copyright-container p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7em;
 }
 
 
@@ -659,6 +859,10 @@ a {
     background: url('images/games/background/1591712225260.webp');
 }
 
+.page-references {
+    background: url('images/games/background/reference.webp');
+}
+
 .page {
     background-size: cover;
     background-attachment: fixed; 
@@ -669,7 +873,7 @@ a {
 
 .form-wrapper {
     padding: 30px;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
     background-color: #000000ba;
     border-radius: 5px;
     box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgb(255 255 255 / 28%);
@@ -699,6 +903,7 @@ form > div:nth-last-child(2) {
     font-weight: bold;
 }
 
+label span,
 .form-label span {
     color: red;
 }
@@ -769,10 +974,6 @@ form button:focus {
     height: 100vh;
 }
 
-.faq-container {
-    margin-bottom: 55px;
-}
-
 .accordion {
     background-color: #000000ba;
     color: #fff;
@@ -784,35 +985,32 @@ form button:focus {
     outline: none;
     font-size: 15px;
     transition: 0.4s;
-  }
-  
-  .accordion.active, .accordion:hover {
+}
+
+.accordion.active, .accordion:hover {
     background-color: #0daef7;
-  }
-  
-  .accordion:after {
+}
+
+.accordion:after {
     content: '\002B';
     color: #fff;
     font-weight: bold;
     float: right;
     margin-left: 5px;
-  }
-  
-  .accordion.active:after {
-    content: "\2212";
-  }
-  
-  .panel {
-    padding: 0 18px;
-    background-color: white;
-    color: #000;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
+}
 
+.accordion.active:after {
+content: "\2212";
+}
 
-
+.panel {
+padding: 0 18px;
+background-color: white;
+color: #000;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.2s ease-out;
+}
 
 
 .meet-the-team-container {
@@ -968,12 +1166,14 @@ form button:focus {
     font-weight: 400;
     opacity: .70;
 }
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        img {
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
     max-width: 100%;
     height: auto;
 }
@@ -1000,7 +1200,177 @@ canvas{
 	display: none;
 }
 
+.page-references ol li {
+    margin-bottom: 15px;
+}
+
+.page-references ol ul {
+    list-style: inside;
+}
+
+.page-references ol ol {
+    list-style: lower-alpha;
+}
+
 
 
 /* Responsiveness */
+@media screen and (max-width: 1024px) {
+    .site-main {
+        width: 90%;
+        margin: 0 auto;
+    }
 
+    #toggled li:nth-child(6),
+    #toggled li:nth-child(7) {
+        display: none;
+    }
+
+    .home-banner .txt-container #bannerContent .btnAction-container {
+        display: none;
+    } 
+
+    .top_games .one_third {
+        margin-right: 2%;
+        width: 46%;
+        text-align: center;
+    }
+
+    .top_games .one_third.last {
+        clear: left;
+        margin-top: 15px;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .top_games .top-container .item {
+        justify-content: center;
+    }
+
+    #myModal .modal-container {
+        max-height: 60vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header nav {
+        clear: left;
+        width: 100%;
+    }
+
+    #menu-toggle {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+    }
+
+    header nav ul {
+        padding-top: 15px;
+        padding-left: 0;
+    }
+
+    header nav ul li a {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #home-banner .three_fourth,
+    #home-banner .one_fourth {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .home-banner .txt-container #bannerContent {
+        width: 50%;
+    }
+
+    .top_games .one_third:first-child {
+        margin-top: 0;
+    }
+
+    .top_games .one_third {
+        margin-right: 0;
+        width: 100%;
+        text-align: left;
+        margin-top: 15px;
+    }
+
+    .top_games .top-container .item {
+        justify-content: inherit;
+    }
+
+    .meet-the-team-container .one_half {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .meet-the-team-container .speaker-block .social-links {
+        bottom: 0;
+    }
+
+    .page-support main .two_third,
+    .page-support main .one_third {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .page-support main .form-wrapper {
+        margin-bottom: 35px;
+    }
+
+    .page-support main .form-wrapper .form-group {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .page-support main .side-contact {
+        height: 50vh;
+    }
+
+    footer .two_fourth {
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    footer .one_fourth {
+        margin-right: 2%;
+        width: 46%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    footer .one_fourth {
+        margin-right: 0;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .home-banner .banner-img .img-container {
+        height: 350px;
+    }
+
+    .home-banner .txt-container #bannerContent {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    #menu-toggle {
+        display: none;
+    }
+    header nav {
+        float: left;  
+        width: calc(100% - 35px);
+    }
+    header nav ul {
+        display: block !important;
+    }
+    header nav ul li {
+        display: inline-block;
+    }
+}

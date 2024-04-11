@@ -1,5 +1,5 @@
 // Preloader
- $(function() {
+$(function() {
     setInterval(preloader, 2000);
     function preloader(){
         $("#preloader").fadeOut(1000);
@@ -7,47 +7,75 @@
 });
 
 // Sound
-let soundPlayer = document.getElementById("soundPlayer");
-let playSound = document.getElementById("playSound");
-let pauseSound = document.getElementById("pauseSound");
-let stopSound = document.getElementById("stopSound");
+if(window.innerWidth > 1024){
+    document.body.setAttribute("onload", "playAudio('play')")
+    
+    let soundPlayer = document.getElementById("soundPlayer");
+    let playSound = document.getElementById("playSound");
+    let pauseSound = document.getElementById("pauseSound");
+    let stopSound = document.getElementById("stopSound");
 
-// Play sound on page load
-playSound.style.display = "none";
-pauseSound.style.display = "inline-block";
-stopSound.style.display = "inline-block";
-
-playSound.addEventListener('click', function(){
+    // Play sound on page load
     playSound.style.display = "none";
     pauseSound.style.display = "inline-block";
     stopSound.style.display = "inline-block";
-    playAudio("play");
-});
 
-pauseSound.addEventListener('click', function(){
-    playSound.style.display = "inline-block";
-    pauseSound.style.display = "none";
-    stopSound.style.display = "inline-block";
-    playAudio("pause");
-});
+    playSound.addEventListener('click', function(){
+        playSound.style.display = "none";
+        pauseSound.style.display = "inline-block";
+        stopSound.style.display = "inline-block";
+        playAudio("play");
+    });
 
-stopSound.addEventListener('click', function(){
-    playSound.style.display = "inline-block";
-    pauseSound.style.display = "none";
-    stopSound.style.display = "none";
-    playAudio("stop");
-});
+    pauseSound.addEventListener('click', function(){
+        playSound.style.display = "inline-block";
+        pauseSound.style.display = "none";
+        stopSound.style.display = "inline-block";
+        playAudio("pause");
+    });
 
-function playAudio(operation){
-    if(operation == "play"){
-        soundPlayer.play();
-    } else if(operation == "pause") {
-        soundPlayer.pause();
-    } else if(operation == "stop"){
-        soundPlayer.pause();
-        soundPlayer.currentTime = 0;
+    stopSound.addEventListener('click', function(){
+        playSound.style.display = "inline-block";
+        pauseSound.style.display = "none";
+        stopSound.style.display = "none";
+        playAudio("stop");
+    });
+
+    function playAudio(operation){
+        if(operation == "play"){
+            soundPlayer.play();
+        } else if(operation == "pause") {
+            soundPlayer.pause();
+        } else if(operation == "stop"){
+            soundPlayer.pause();
+            soundPlayer.currentTime = 0;
+        }
     }
 }
+
+// Responsive Menu
+var toggle = document.getElementById("menu-toggle");
+toggle.addEventListener("touchstart", accordionMenu, false);
+
+function accordionMenu() {
+    var menu = document.getElementById("toggled");
+      var menuStyle = window.getComputedStyle(menu);
+      var display = menuStyle.getPropertyValue('display');
+    
+    if (display === 'none') {
+      toggle.style.backgroundColor = "transparent";
+      toggle.style.color = "rgb(0, 116, 228)";
+      menu.style.display = "block";
+    } else {
+      toggle.style.backgroundColor = "transparent";
+      toggle.style.color = "white";
+      menu.style.display = "none";
+    };
+};
+
+
+
+
 
 
 // Banner
@@ -260,7 +288,7 @@ window.onclick = function(event) {
 $(document).ready(function() {
     var owl = $('.featured-games');
     owl.owlCarousel({
-      autoplay: false,
+      autoplay: true,
       autoplayTimeout: 5000,
       autoplayHoverPause: true,
       margin: 10,
@@ -271,16 +299,28 @@ $(document).ready(function() {
         0: {
           items: 1
         },
-        600: {
-          items: 3
+        426: {
+          items: 2
         },
-        1000: {
+        769: {
+          items: 4
+        },
+        1025: {
           items: 5
+        },
+        1560: {
+          items: 7
         }
       }
     })
-  });
+});
 
+// Setting the max width of the page
+$("body").css({
+    width: window.innerWidth
+});
+
+// Galaxy Background 
 nakerback.render({
     container: document.getElementById('space-container'),
     waterMark : false,
