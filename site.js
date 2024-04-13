@@ -177,9 +177,9 @@ function changeBanner(index, thisClicked){
 let btn_wishlist = document.getElementById("btn_wishlist");
 let arr_wishlist = [];
 btn_wishlist.addEventListener("click", function(){
-    if(!arr_wishlist.includes(btn_wishlist.getAttribute("game"))){
+    if(!arr_wishlist.includes(btn_wishlist.getAttribute("data-game"))){
         alert(`You have successfully added this game to your wishlist!`);
-        arr_wishlist.push(btn_wishlist.getAttribute("game"));
+        arr_wishlist.push(btn_wishlist.getAttribute("data-game"));
     } else {
         alert("This game is already in your wishlist!");
     }
@@ -313,11 +313,6 @@ $(document).ready(function() {
         }
       }
     })
-});
-
-// Setting the max width of the page
-$("body").css({
-    width: window.innerWidth
 });
 
 // Galaxy Background 
